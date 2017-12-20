@@ -19,11 +19,8 @@ namespace Color_Range_Maker
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            new Thread(() =>
-            {
-                editForm = new FrmEdit(this);
-                editForm.ShowDialog();
-            }).Start();
+            editForm = new FrmEdit(this);
+            editForm.Show();
         }
 
         private void FrmMain_DragDrop(object sender, DragEventArgs e)

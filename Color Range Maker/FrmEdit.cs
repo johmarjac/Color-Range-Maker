@@ -16,6 +16,8 @@ namespace Color_Range_Maker
         public FrmEdit(FrmMain mainForm) : this()
         {
             this.mainForm = mainForm;
+
+            Owner = mainForm;
         }
 
         private void tbMinHue_Scroll(object sender, EventArgs e)

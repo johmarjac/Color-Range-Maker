@@ -180,13 +180,12 @@ namespace Color_Range_Maker
             this.Controls.Add(this.tbMinVal);
             this.Controls.Add(this.tbMinSat);
             this.Controls.Add(this.tbMinHue);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmEdit";
             this.Opacity = 0.75D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Window";
-            this.TopMost = true;
             this.Activated += new System.EventHandler(this.FrmEdit_Activated);
             this.Deactivate += new System.EventHandler(this.FrmEdit_Deactivate);
             this.Load += new System.EventHandler(this.FrmEdit_Load);
