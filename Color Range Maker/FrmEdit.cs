@@ -24,6 +24,7 @@ namespace Color_Range_Maker
         {
             Global.MinHue = tbMinHue.Value;
             lbMinHue.Text = string.Format("Min Hue: OpenCV: {0} | Norm HSV: {1}", Global.MinHue, Math.Round((Global.MinHue / 180) * 360, 0));
+            num_MinHue.Value = (decimal)Global.MinHue;
             mainForm.Invalidate();
         }
 
@@ -31,6 +32,7 @@ namespace Color_Range_Maker
         {
             Global.MinSat = tbMinSat.Value;
             lbMinSat.Text = string.Format("Min Sat: OpenCV: {0} | Norm HSV: {1}", Global.MinSat, Math.Round((Global.MinSat / 255) * 100, 0));
+            num_MinSat.Value = (decimal)Global.MinSat;
             mainForm.Invalidate();
         }
 
@@ -38,6 +40,7 @@ namespace Color_Range_Maker
         {
             Global.MinVal = tbMinVal.Value;
             lbMinVal.Text = string.Format("Min Val: OpenCV: {0} | Norm HSV: {1}", Global.MinVal, Math.Round((Global.MinVal / 255) * 100, 0));
+            num_MinVal.Value = (decimal)Global.MinVal;
             mainForm.Invalidate();
         }
 
@@ -45,6 +48,7 @@ namespace Color_Range_Maker
         {
             Global.MaxHue = tbMaxHue.Value;
             lbMaxHue.Text = string.Format("Max Hue: OpenCV: {0} | Norm HSV: {1}", Global.MaxHue, Math.Round((Global.MaxHue / 180) * 360, 0));
+            num_MaxHue.Value = (decimal)Global.MaxHue;
             mainForm.Invalidate();
         }
 
@@ -52,6 +56,7 @@ namespace Color_Range_Maker
         {
             Global.MaxSat = tbMaxSat.Value;
             lbMaxSat.Text = string.Format("Max Sat: OpenCV: {0} | Norm HSV: {1}", Global.MaxSat, Math.Round((Global.MaxSat / 255) * 100, 0));
+            num_MaxSat.Value = (decimal)Global.MaxSat;
             mainForm.Invalidate();
         }
 
@@ -59,6 +64,7 @@ namespace Color_Range_Maker
         {
             Global.MaxVal = tbMaxVal.Value;
             lbMaxVal.Text = string.Format("Max Val: OpenCV: {0} | Norm HSV: {1}", Global.MaxVal, Math.Round((Global.MaxVal / 255) * 100, 0));
+            num_MaxVal.Value = (decimal)Global.MaxVal;
             mainForm.Invalidate();
         }
 
@@ -80,6 +86,78 @@ namespace Color_Range_Maker
             tbMaxHue_Scroll(this, EventArgs.Empty);
             tbMaxSat_Scroll(this, EventArgs.Empty);
             tbMaxVal_Scroll(this, EventArgs.Empty);
+        }
+
+        private void num_MinHue_ValueChanged(object sender, EventArgs e)
+        {
+            tbMinHue.Value = (int)num_MinHue.Value;
+            tbMinHue_Scroll(sender, e);
+        }
+
+        private void num_MinSat_ValueChanged(object sender, EventArgs e)
+        {
+            tbMinSat.Value = (int)num_MinSat.Value;
+            tbMinSat_Scroll(sender, e);
+        }
+
+        private void num_MinVal_ValueChanged(object sender, EventArgs e)
+        {
+            tbMinVal.Value = (int)num_MinVal.Value;
+            tbMinVal_Scroll(sender, e);
+        }
+
+        private void num_MaxHue_ValueChanged(object sender, EventArgs e)
+        {
+            tbMaxHue.Value = (int)num_MaxHue.Value;
+            tbMaxHue_Scroll(sender, e);
+        }
+
+        private void num_MaxSat_ValueChanged(object sender, EventArgs e)
+        {
+            tbMaxSat.Value = (int)num_MaxSat.Value;
+            tbMaxSat_Scroll(sender, e);
+        }
+
+        private void num_MaxVal_ValueChanged(object sender, EventArgs e)
+        {
+            tbMaxVal.Value = (int)num_MaxVal.Value;
+            tbMaxVal_Scroll(sender, e);
+        }
+
+        private void num_MinHue_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                num_MinHue_ValueChanged(sender, e);
+        }
+
+        private void num_MinSat_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                num_MinSat_ValueChanged(sender, e);
+        }
+
+        private void num_MinVal_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                num_MinVal_ValueChanged(sender, e);
+        }
+
+        private void num_MaxHue_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                num_MaxHue_ValueChanged(sender, e);
+        }
+
+        private void num_MaxSat_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                num_MaxSat_ValueChanged(sender, e);
+        }
+
+        private void num_MaxVal_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                num_MaxVal_ValueChanged(sender, e);
         }
     }
 }
