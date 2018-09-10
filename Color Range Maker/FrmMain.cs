@@ -88,9 +88,30 @@ namespace Color_Range_Maker
                     mask |= Global.Image.InRange(new Hsv(range.MinHue, range.MinSat, range.MinVal), new Hsv(range.MaxHue, range.MaxSat, range.MaxVal));
                 }
 
-                
-                e.Graphics.DrawImage(mask.ToBitmap(), Width / 2, 0, Width / 2, Height);
+
+                //e.Graphics.DrawImage(mask.ToBitmap(), Width / 2, 0, Width / 2, Height);
                 e.Graphics.DrawImage(Global.Image.ToBitmap(), 0, 0, Width / 2, Height);
+
+                Image<Hsv, byte> img = new Image<Hsv, byte>(Global.Image.Width, Global.Image.Height);
+                for(int x = 0; x < Global.Image.Width; x++)
+                {
+                    for(int y = 0; y < Global.Image.Height; y++)
+                    {
+                        if(mask.Data[x, y, 0] == 0 ^ Global.Invert)
+                        {
+                            img.Data[x, y, 0] = 0;
+                            img.Data[x, y, 1] = 0;
+                            img.Data[x, y, 2] = 0;
+                        }
+                        else
+                        {
+                            img.Data[x, y, 0] = Global.Image.Data[x, y, 0];
+                            img.Data[x, y, 1] = Global.Image.Data[x, y, 1];
+                            img.Data[x, y, 2] = Global.Image.Data[x, y, 2];
+                        }
+                    }
+                }
+                e.Graphics.DrawImage(img.ToBitmap(), Width / 2, 0, Width / 2, Height);
             }
         }
 

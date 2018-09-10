@@ -159,5 +159,10 @@ namespace Color_Range_Maker
             if (e.KeyCode == Keys.Enter)
                 num_MaxVal_ValueChanged(sender, e);
         }
+
+        private void chckBxInvert_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.Invert = chckBxInvert.Checked;
+        }
     }
 }

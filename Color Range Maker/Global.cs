@@ -14,6 +14,8 @@ namespace Color_Range_Maker
         public static float MaxSat = 255;
         public static float MaxVal = 255;
 
+        public static bool Invert = false;
+
         public static void ToNormHSV(ref float minHue, ref float minSat, ref float minVal, ref float maxHue, ref float maxSat, ref float maxVal)
         {
             minHue = (minHue / 180) * 360;

@@ -48,6 +48,7 @@ namespace Color_Range_Maker
             this.num_MaxVal = new System.Windows.Forms.NumericUpDown();
             this.num_MaxSat = new System.Windows.Forms.NumericUpDown();
             this.num_MaxHue = new System.Windows.Forms.NumericUpDown();
+            this.chckBxInvert = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbMinHue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMinSat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMinVal)).BeginInit();
@@ -264,12 +265,24 @@ namespace Color_Range_Maker
             this.num_MaxHue.ValueChanged += new System.EventHandler(this.num_MaxHue_ValueChanged);
             this.num_MaxHue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.num_MaxHue_KeyUp);
             // 
+            // chckBxInvert
+            // 
+            this.chckBxInvert.AutoSize = true;
+            this.chckBxInvert.Location = new System.Drawing.Point(807, 171);
+            this.chckBxInvert.Name = "chckBxInvert";
+            this.chckBxInvert.Size = new System.Drawing.Size(65, 21);
+            this.chckBxInvert.TabIndex = 18;
+            this.chckBxInvert.Text = "Invert";
+            this.chckBxInvert.UseVisualStyleBackColor = true;
+            this.chckBxInvert.CheckedChanged += new System.EventHandler(this.chckBxInvert_CheckedChanged);
+            // 
             // FrmEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 385);
             this.ControlBox = false;
+            this.Controls.Add(this.chckBxInvert);
             this.Controls.Add(this.num_MaxVal);
             this.Controls.Add(this.num_MaxSat);
             this.Controls.Add(this.num_MaxHue);
@@ -333,5 +346,6 @@ namespace Color_Range_Maker
         private System.Windows.Forms.NumericUpDown num_MaxVal;
         private System.Windows.Forms.NumericUpDown num_MaxSat;
         private System.Windows.Forms.NumericUpDown num_MaxHue;
+        private System.Windows.Forms.CheckBox chckBxInvert;
     }
 }
