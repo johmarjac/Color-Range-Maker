@@ -90,28 +90,28 @@ namespace Color_Range_Maker
 
 
                 //e.Graphics.DrawImage(mask.ToBitmap(), Width / 2, 0, Width / 2, Height);
-                e.Graphics.DrawImage(Global.Image.ToBitmap(), 0, 0, Width / 2, Height);
+                e.Graphics.DrawImage(Global.Image.Convert<Bgr, byte>().ToBitmap(), 0, 0, ClientSize.Width / 2, ClientSize.Height);
 
                 Image<Hsv, byte> img = new Image<Hsv, byte>(Global.Image.Width, Global.Image.Height);
-                for(int x = 0; x < Global.Image.Width; x++)
+                for (int x = 0; x < Global.Image.Width; x++)
                 {
-                    for(int y = 0; y < Global.Image.Height; y++)
+                    for (int y = 0; y < Global.Image.Height; y++)
                     {
-                        if(mask.Data[x, y, 0] == 0 ^ Global.Invert)
+                        if (mask.Data[y, x, 0] == 0 ^ Global.Invert)
                         {
-                            img.Data[x, y, 0] = 0;
-                            img.Data[x, y, 1] = 0;
-                            img.Data[x, y, 2] = 0;
+                            img.Data[y, x, 0] = 0;
+                            img.Data[y, x, 1] = 0;
+                            img.Data[y, x, 2] = 0;
                         }
                         else
                         {
-                            img.Data[x, y, 0] = Global.Image.Data[x, y, 0];
-                            img.Data[x, y, 1] = Global.Image.Data[x, y, 1];
-                            img.Data[x, y, 2] = Global.Image.Data[x, y, 2];
+                            img.Data[y, x, 0] = Global.Image.Data[y, x, 0];
+                            img.Data[y, x, 1] = Global.Image.Data[y, x, 1];
+                            img.Data[y, x, 2] = Global.Image.Data[y, x, 2];
                         }
                     }
                 }
-                e.Graphics.DrawImage(img.ToBitmap(), Width / 2, 0, Width / 2, Height);
+                e.Graphics.DrawImage(img.Convert<Bgr, byte>().ToBitmap(), ClientSize.Width / 2, 0, ClientSize.Width / 2, ClientSize.Height);
             }
         }
 
